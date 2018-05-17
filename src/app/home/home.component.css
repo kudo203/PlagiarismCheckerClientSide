@@ -1,0 +1,46 @@
+.parent-div{
+  width: 100%;
+  height: 100%;
+  background-color: darkslategray;
+}
+
+.void{
+  height: 150px;
+}
+
+input{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.center{
+  width: 50%;
+}
+
+.column{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxed {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.boxed:hover{
+  overflow: visible;
+  cursor: default;
+  background-color: #3E3E3E;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}

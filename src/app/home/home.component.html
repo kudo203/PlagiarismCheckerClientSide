@@ -1,0 +1,36 @@
+<div class="parent-div">
+  <div class="void">
+
+  </div>
+  <div class="row">
+    <div class="column">
+      <ul>
+        <li *ngFor="let filename of allSelectedFiles1">
+          <div class="boxed text-white">
+            {{filename}}
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="column">
+      <ul>
+        <li *ngFor="let filename of allSelectedFiles2">
+          <div class="boxed text-white">
+            {{filename}}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+    <label class="btn btn-success" for="file1">Browse</label>
+    <input type="file" id="file1" (change)="onFileChange($event)" #fileInput multiple="true">
+    </div>
+    <div class="column">
+      <label class="btn btn-success" for="file2">Browse</label>
+      <input type="file" id="file2" (change)="onFileChange($event)" #fileInput multiple="true">
+    </div>
+  </div>
+</div>
