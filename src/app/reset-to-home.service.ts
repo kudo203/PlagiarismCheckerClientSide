@@ -13,7 +13,7 @@ export class ResetHomeService {
   }
 
   deleteAllFiles(): Observable<HttpEvent<{}>> {
-    const req = new HttpRequest('GET', '/deleteAll', {reportProgress: true, responseType: 'text'});
+    const req = new HttpRequest('GET', '/api/deleteAll', {reportProgress: true, responseType: 'text'});
     return this.http.request(req);
   }
 }

@@ -44,3 +44,14 @@ ul {
   padding: 0;
   list-style-type: none;
 }
+
+.report{
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  color: ghostwhite;
+}

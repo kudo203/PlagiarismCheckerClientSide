@@ -1,31 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import {ResetHomeService} from './reset-to-home.service';
-import {UploadFileServiceService} from './upload-file-service.service';
+import {FileHandleService} from './file-handle.service';
+import { SummaryComponent } from './summary/summary.component';
 
+const appRoutes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'summary', component: SummaryComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '**', redirectTo: '/home', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {path: '', component: HomeComponent}
-    ])
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     ResetHomeService,
-    UploadFileServiceService
+    FileHandleService
   ],
   bootstrap: [AppComponent]
 })
