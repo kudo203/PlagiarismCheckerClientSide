@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ResetHomeService} from '../reset-to-home.service';
-import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +8,12 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(private resetHomeService: ResetHomeService, private http: HttpClient) {
+  constructor(private resetHomeService: ResetHomeService, private router: Router) {
   }
 
   reset() {
-    this.resetHomeService.resetToHome();
+    this.resetHomeService.deleteAllFiles().subscribe(event => {
+    });
+    this.router.navigateByUrl('/home');
   }
 }

@@ -1,3 +1,32 @@
-<p>
-  summary works!
-</p>
+<div class="parent-div" >
+  <div>
+    <mat-table [dataSource] = "dataSource">
+      <ng-container matColumnDef = "Source1">
+        <mat-header-cell *matHeaderCellDef>Source1</mat-header-cell>
+        <mat-cell *matCellDef = "let match">{{match.f1_name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef = "Source2">
+        <mat-header-cell *matHeaderCellDef>Source2</mat-header-cell>
+        <mat-cell *matCellDef = "let match">{{match.f2_name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef = "Similarity">
+        <mat-header-cell *matHeaderCellDef>Similarity</mat-header-cell>
+        <mat-cell *matCellDef = "let match">{{match.similarity}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef = "Action">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef = "let match">
+          <button type="button" class="btn btn-success">Side By Side</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
+      <mat-row  [ngClass]="{'bg-dark': index%2 == 0, 'mat-row-odd': index%2 == 1}" *matRowDef = "let row; columns: displayedColumns; let index = index"></mat-row>
+    </mat-table>
+  </div>
+  <div class="rest" style="background-color: darkslategray" *ngIf="dataSource.rows % 2 == 1">
+  </div>
+  <div class="rest bg-dark" *ngIf="dataSource.rows % 2 == 0">
+  </div>
+
+</div>

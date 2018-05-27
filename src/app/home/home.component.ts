@@ -13,9 +13,6 @@ export class HomeComponent implements OnInit {
   constructor(private resetHomeService: ResetHomeService, private fileHandling: FileHandleService) {
    }
    ngOnInit() {
-     this.resetHomeService.change.subscribe( () => {
-       this.reset();
-     });
      this.fileHandling.getAllProject1Files().subscribe((data: String[]) => {
        this.allSelectedFiles1 = data;
      });
@@ -23,11 +20,6 @@ export class HomeComponent implements OnInit {
        this.allSelectedFiles2 = data;
      });
    }
-  reset() {
-    this.resetHomeService.deleteAllFiles().subscribe(event => {});
-    this.allSelectedFiles1 = [];
-    this.allSelectedFiles2 = [];
-  }
 
    onFileChange(event) {
     if (event.target.id === 'file1') {
