@@ -11,10 +11,13 @@ import {ResetHomeService} from './reset-to-home.service';
 import {FileHandleService} from './file-handle.service';
 import { SummaryComponent } from './summary/summary.component';
 import {GetReportService} from './get-report.service';
+import { SideBySideComponent } from './side-by-side/side-by-side.component';
+import {GetMatchService} from "./get-match.service";
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'summary', component: SummaryComponent},
+  {path: 'side-by-side/:id', component: SideBySideComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
@@ -24,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    SummaryComponent
+    SummaryComponent,
+    SideBySideComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ const appRoutes: Routes = [
   providers: [
     ResetHomeService,
     FileHandleService,
-    GetReportService
+    GetReportService,
+    GetMatchService
   ],
   bootstrap: [AppComponent]
 })

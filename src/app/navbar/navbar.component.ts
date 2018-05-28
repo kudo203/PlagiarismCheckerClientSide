@@ -12,6 +12,7 @@ export class NavbarComponent {
   }
 
   reset() {
+    this.resetHomeService.resetToHome();
     this.resetHomeService.deleteAllFiles().subscribe(event => {
     });
     this.router.navigateByUrl('/home');

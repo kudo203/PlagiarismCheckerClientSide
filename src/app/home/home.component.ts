@@ -10,15 +10,24 @@ import {FileHandleService} from '../file-handle.service';
 export class HomeComponent implements OnInit {
   allSelectedFiles1: String[];
   allSelectedFiles2: String[];
-  constructor(private resetHomeService: ResetHomeService, private fileHandling: FileHandleService) {
+  constructor(private fileHandling: FileHandleService, private resetHomeService: ResetHomeService) {
+    this.resetHomeService.deleteAllFiles().subscribe(event => {
+    });
    }
    ngOnInit() {
+     this.resetHomeService.change.subscribe( () => {
+       this.reset();
+     });
      this.fileHandling.getAllProject1Files().subscribe((data: String[]) => {
        this.allSelectedFiles1 = data;
      });
      this.fileHandling.getAllProject2Files().subscribe((data: String[]) => {
        this.allSelectedFiles2 = data;
      });
+   }
+   reset()  {
+    this.allSelectedFiles1 = [];
+    this.allSelectedFiles2 = [];
    }
 
    onFileChange(event) {

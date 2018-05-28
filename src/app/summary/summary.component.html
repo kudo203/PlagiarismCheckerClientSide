@@ -15,13 +15,13 @@
       </ng-container>
       <ng-container matColumnDef = "Action">
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-        <mat-cell *matCellDef = "let match">
-          <button type="button" class="btn btn-success">Side By Side</button>
+        <mat-cell *matCellDef = "let match; let i = index">
+          <button (click)="sideBysideRequest(i)" type="button" class="btn btn-success">Side By Side</button>
         </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
-      <mat-row  [ngClass]="{'bg-dark': index%2 == 0, 'mat-row-odd': index%2 == 1}" *matRowDef = "let row; columns: displayedColumns; let index = index"></mat-row>
+      <mat-row  [ngClass]="{'bg-dark': index%2 == 0, 'mat-row-odd': index%2 == 1}" *matRowDef = "let row; columns: displayedColumns; let index = index;"></mat-row>
     </mat-table>
   </div>
   <div class="rest" style="background-color: darkslategray" *ngIf="dataSource.rows % 2 == 1">
