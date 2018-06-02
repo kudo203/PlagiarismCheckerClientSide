@@ -1,0 +1,32 @@
+.parent-div{
+  width: 100%;
+  height: 100%;
+  background-color: darkslategray;
+}
+
+.header-div {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: ghostwhite;
+}
+
+.file{
+  height: 400px;
+  overflow-y: scroll;
+  width: 75%;
+}
+
+pre{
+  white-space: normal;
+}
+
+code{
+  color: ghostwhite;
+}
+
+.code-line{
+  padding-left: 10px;
+}

@@ -11,7 +11,7 @@
       </ng-container>
       <ng-container matColumnDef = "Similarity">
         <mat-header-cell *matHeaderCellDef>Similarity</mat-header-cell>
-        <mat-cell *matCellDef = "let match">{{match.similarity}}</mat-cell>
+        <mat-cell *matCellDef = "let match">{{match.similarity*100}}%</mat-cell>
       </ng-container>
       <ng-container matColumnDef = "Action">
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>

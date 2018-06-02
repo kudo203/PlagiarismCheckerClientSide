@@ -1,3 +1,44 @@
-<p>
-  side-by-side works!
-</p>
+<div class="parent-div">
+  <div>
+    <div class="header-div">
+      <h5>
+        Clone Percentage: {{match.similarity*100}}%
+      </h5>
+      <h5>
+        Clone Count: {{match.cloneTechniques[0].clones.length}}
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div style="padding-left: 10px">
+        <span style="color: ghostwhite">{{match.f1_name}}</span>
+        <div class="file bg-dark">
+          <pre>
+            <div *ngFor="let line of f1_content_model; let i = index" [style.color]="line.color" class="code-line">
+              {{i+1}} {{line.line}}
+              <span title="clone: {{line.clone_id}}, similarity: {{line.similarity}}%" style="float: right; cursor: pointer" *ngIf="line.similarity !=-1">
+                <i class="material-icons">info</i>
+              </span>
+            </div>
+          </pre>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div style="padding-left: 10px">
+        <span style="color: ghostwhite">{{match.f2_name}}</span>
+        <div class="file bg-dark">
+          <pre>
+            <div *ngFor="let line of f2_content_model; let i = index" [style.color]="line.color" class="code-line">
+              {{i+1}} {{line.line}}
+              <span title="clone: {{line.clone_id}}, similarity: {{line.similarity}}%" style="float: right; cursor: pointer" *ngIf="line.similarity !=-1">
+                <i class="material-icons">info</i>
+              </span>
+            </div>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
